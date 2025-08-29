@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atanu Sarkar | Digital Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    html {scroll-behavior:smooth;}
+    body {font-family:'Poppins', sans-serif; background:#f5f7fa; color:#333; line-height:1.6;}
+    
+    /* Header */
+    header {
+      background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color:#fff; padding:60px 20px; text-align:center;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h1 {font-size:2.5rem;}
+    header p {font-size:1.2rem; margin-top:10px;}
+    header .btn {
+      margin-top:20px; display:inline-block; padding:10px 20px;
+      background:#00c6ff; color:#fff; text-decoration:none; border-radius:5px;
+      transition:transform 0.3s, background 0.3s;
+    }
+    header .btn:hover {background:#0072ff; transform:scale(1.05);}
+    
+    /* Sections */
+    section {padding:50px 20px; max-width:1100px; margin:auto;}
+    h2 {color:#203a43; margin-bottom:20px; font-size:1.8rem; position:relative;}
+    h2::after {
+      content:''; position:absolute; bottom:-5px; left:0;
+      width:50px; height:3px; background:#00c6ff; border-radius:2px;
+    }
+    
+    /* About */
+    .quick-facts {display:flex; gap:20px; flex-wrap:wrap;}
+    .fact {
+      background:#fff; padding:15px; border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1); flex:1; min-width:200px;
+      transition:transform 0.3s;
+    }
+    .fact:hover {transform:translateY(-5px);}
+    
+    /* Skills */
+    .skills-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
+    .skill {
+      background:#fff; padding:15px; border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      transition:transform 0.3s;
+    }
+    .skill:hover {transform:scale(1.03);}
+    
+    /* Projects */
+    .projects-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
+    .project {
+      background:#fff; padding:15px; border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      transition:transform 0.3s;
+      opacity:0; transform:translateY(20px);
+    }
+    .project img {width:100%; border-radius:5px; margin-bottom:10px;}
+    .project:hover {transform:translateY(-5px);}
+    
+    /* Contact */
+    form {display:grid; gap:10px;}
+    input, textarea {padding:10px; border:1px solid #ccc; border-radius:5px;}
+    button {
+      padding:10px; background:#203a43; color:#fff; border:none;
+      border-radius:5px; cursor:pointer; transition:background 0.3s;
+    }
+    button:hover {background:#2c5364;}
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity:0; transform:translateY(-20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Atanu Sarkar</h1>
+  <p>Turning Data, Code & Creativity into Real‑World Solutions</p>
+  <a href="Atanu_Sarkar_CV_Classic.pdf" class="btn" target="_blank">View Resume</a>
+</header>
+
+<section class="about">
+  <h2>About Me</h2>
+  <p>I’m a BCA (Hons) student at Brainware University with a passion for blending software engineering and creative design. My focus is on building practical, user‑friendly solutions that merge technical precision with visual appeal.</p>
+  <div class="quick-facts">
+    <div class="fact">🎓 Average SGPA (4 Sems): <strong>8.55</strong></div>
+    <div class="fact">🏆 Hackathon Participant</div>
+    <div class="fact">🎨 UI Workshop Attendee</div>
+  </div>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill"><strong>Programming:</strong> C, Python, PHP, JavaScript</div>
+    <div class="skill"><strong>Web:</strong> HTML, CSS</div>
+    <div class="skill"><strong>Databases:</strong> DBMS, MongoDB</div>
+    <div class="skill"><strong>Creative Tools:</strong> Adobe Photoshop, 2D Animation</div>
+    <div class="skill"><strong>Other:</strong> Data Visualization, API Integration</div>
+  </div>
+</section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project">
+      <img src="hospital_project_screenshot.jpg" alt="Hospital Management System">
+      <h3>Hospital Management System</h3>
+      <p>Integrated chatbot + SMS notification system for better communication. Built with HTML, CSS, JS, PHP, DBMS, and API integration.</p>
+    </div>
+    <div class="project">
+      <img src="data_viz_dashboard.jpg" alt="Data Visualization Dashboard">
+      <h3>Data Visualization Dashboard</h3>
+      <p>Interactive dashboard for visualizing datasets with charts and filters. Built using Python, JavaScript, and MongoDB.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  // Fade-in animation for projects on scroll
+  const projects = document.querySelectorAll('.project');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'fadeInUp 0.8s forwards';
+      }
+    });
+  }, {threshold: 0.2});
+  projects.forEach(project => observer.observe(project));
+</script>
+
+</body>
+</html>
